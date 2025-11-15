@@ -6,7 +6,6 @@ public class GameOver : MonoBehaviour
 {
 
     [SerializeField] private GameObject gameOverPanel;
-    private LevelCounter _level;
     public void ShowGameOver()
     {
         Cursor.visible = true;
