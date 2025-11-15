@@ -15,9 +15,12 @@ public class CheckPoint : MonoBehaviour
 
     public int timeToBeat = 0;
 
+    public GameOver gameOver;
+
 
     void Start()
     {
+        gameOver = FindObjectOfType<GameOver>();
         CheckPointPrefab = GetComponent<GameObject>();
 
         GameObject levelGO = GameObject.Find("LevelCounter");
@@ -37,6 +40,7 @@ public class CheckPoint : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            gameOver.ShowGameOver();
             if (LevelCounter.Level < curCheckPointLevel)
             {
                 // levelCounter.SetLevel(curCheckPointLevel);
