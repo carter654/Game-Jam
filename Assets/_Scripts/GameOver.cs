@@ -6,29 +6,18 @@ public class GameOver : MonoBehaviour
 {
 
     [SerializeField] private GameObject gameOverPanel;
-
+    private LevelCounter _level;
     public void ShowGameOver()
     {
-        Time.timeScale = 0;
         Cursor.visible = true;
         gameOverPanel.SetActive(true);
+        Invoke("no", 3);
     }
 
-    public void RestartGame()
+    private void no()
     {
-        Time.timeScale = 1f;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("_Scene_0");
+        Cursor.visible = false;
+        gameOverPanel.SetActive(false);
     }
 
-    public void LoadMainMenu()
-    {
-        Time.timeScale = 1f;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
-    }
-    
-    public void QuitGame()
-    {
-        Time.timeScale = 1f;
-        Application.Quit();
-    }
 }
