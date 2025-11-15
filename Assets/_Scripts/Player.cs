@@ -8,21 +8,18 @@ public class Player : MonoBehaviour
     public GameObject playerPrefab;
 
     public float speed = 10f;
-
     public float jumpPower = 5f;
 
     private float horizontal;
-
     private bool isFacingRight = true;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
-    // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
+        horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
@@ -33,6 +30,8 @@ public class Player : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
+
+        Flip();
     }
 
     private void FixedUpdate()
