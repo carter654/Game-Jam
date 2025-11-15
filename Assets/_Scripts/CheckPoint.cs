@@ -39,7 +39,8 @@ public class CheckPoint : MonoBehaviour
         {
             if (LevelCounter.Level < curCheckPointLevel)
             {
-                levelCounter.IncrementLevel();
+                // levelCounter.SetLevel(curCheckPointLevel);
+                // timer.SetTime(timeToBeat);
             }
         }
     }

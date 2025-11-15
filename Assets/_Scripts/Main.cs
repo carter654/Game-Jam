@@ -22,11 +22,11 @@ public class General : MonoBehaviour
 
     void CheckTime()
     {
-        float currentTime = timer.TimeElapsed;
-        if (currentTime >= 0)
-        {
-            // Do something with the player
-        }
+        // float currentTime = timer.TimeElapsed;
+        // if (currentTime >= 0)
+        // {
+        //     // Do something with the player
+        // }
 
     }
 }

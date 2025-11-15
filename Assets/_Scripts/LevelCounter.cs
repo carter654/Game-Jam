@@ -25,6 +25,12 @@ public class LevelCounter : MonoBehaviour
         get { return level; }
     }
 
+    static public void SetLevel(int newLevel)
+    {
+        level = newLevel;
+        PlayerPrefs.SetInt("LevelCounter", level);
+    }
+
     static public void IncrementLevel()
     {
         level++;
