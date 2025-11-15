@@ -7,8 +7,6 @@ public class CheckPoint : MonoBehaviour
     [Header("Inscribed")]
     public GameObject CheckPointPrefab;
 
-    public LevelCounter levelCounter;
-
     public Timer timer;
 
     public int curCheckPointLevel = 0;
@@ -23,23 +21,19 @@ public class CheckPoint : MonoBehaviour
         gameOver = FindObjectOfType<GameOver>();
         CheckPointPrefab = gameObject;
 
-        GameObject levelGO = GameObject.Find("LevelCounter");
-        levelCounter = levelGO.GetComponent<LevelCounter>();
-
-        GameObject timerGO = GameObject.Find("Timer");
-        timer = timerGO.GetComponent<Timer>();
+        timer = FindObjectOfType<Timer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
+            Debug.Log("Checkpoint reached at level " + curCheckPointLevel);
             gameOver.ShowGameOver();
             if (LevelCounter.Level < curCheckPointLevel)
             {
