@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 
     public float speed = 10f;
 
-    public float jumpPower = 15f;
+    public float jumpPower = 5f;
 
     private float horizontal;
 
@@ -27,7 +27,6 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-
         }
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
