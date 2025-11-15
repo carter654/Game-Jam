@@ -6,7 +6,7 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     [Header("Dynamic")]
-    static private float m_Time = 0;
+    public float m_Time = 0;
 
     public bool m_Running = false;
 
@@ -19,7 +19,7 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        uiText.text = m_Time.ToString("#,0");
+        uiText.text = "Time: " + m_Time.ToString("#,0");
     }
 
     void FixedUpdate()
@@ -28,20 +28,5 @@ public class Timer : MonoBehaviour
         {
             m_Time += Time.fixedDeltaTime;
         }
-    }
-
-    static public float TimeElapsed
-    {
-        get { return m_Time; }
-    }
-
-    static public void SetTime(float newTime)
-    {
-        m_Time = newTime;
-    }
-
-    static public void ResetTime()
-    {
-        m_Time = 0;
     }
 }

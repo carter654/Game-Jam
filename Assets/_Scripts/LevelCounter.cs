@@ -6,52 +6,41 @@ using TMPro;
 public class LevelCounter : MonoBehaviour
 {
     [Header("Dynamic")]
-    static private int level = 0;
-
-    private TextMeshProUGUI uiText;
+    static private int _level = 0;
+    
+    static private TextMeshProUGUI  uiText;
 
     void Awake() 
     {
         uiText = GetComponent<TextMeshProUGUI>();
 
         if (PlayerPrefs.HasKey("LevelCounter")){
-            level = PlayerPrefs.GetInt("LevelCounter");
+            Level = PlayerPrefs.GetInt("LevelCounter");
         }
-        PlayerPrefs.SetInt("LevelCounter", level);
+        PlayerPrefs.SetInt("LevelCounter", Level);
     }
 
     static public int Level
     {
-        get { return level; }
+        get { return _level; }
+        private set{
+            _level = value;
+            PlayerPrefs.SetInt("LevelCounter", value);
+            if (uiText != null) {
+                uiText.text = "Level: " + value.ToString("#,0");
+            }
+        }
     }
+
 
     static public void SetLevel(int newLevel)
     {
-        level = newLevel;
-        PlayerPrefs.SetInt("LevelCounter", level);
-    }
-
-    static public void IncrementLevel()
-    {
-        level++;
-        PlayerPrefs.SetInt("LevelCounter", level);
-    }
-
-    static public void DecrementLevel()
-    {
-        level--;
-        PlayerPrefs.SetInt("LevelCounter", level);
+        Level = newLevel;
     }
 
     static public void ResetLevel()
     {
-        level = 0;
-        PlayerPrefs.SetInt("LevelCounter", level);
-    }
-
-    void Update()
-    {
-        uiText.text = level.ToString("#,0");
+        Level = 0;
     }
 }
 
