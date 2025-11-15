@@ -8,7 +8,7 @@ public class LevelCounter : MonoBehaviour
     [Header("Dynamic")]
     static private int _level = 0;
     
-    static private TextMeshProUGUI  uiText;
+    static private TextMeshProUGUI uiText;
 
     void Awake() 
     {
@@ -36,11 +36,6 @@ public class LevelCounter : MonoBehaviour
     static public void SetLevel(int newLevel)
     {
         Level = newLevel;
-    }
-
-    static public void ResetLevel()
-    {
-        Level = 0;
     }
 }
 

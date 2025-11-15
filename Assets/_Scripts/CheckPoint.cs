@@ -13,6 +13,8 @@ public class CheckPoint : MonoBehaviour
 
     public int timeToBeat = 0;
 
+    public int numOfLivesToGive = 0;
+
     public GameOver gameOver;
 
 
@@ -34,7 +36,7 @@ public class CheckPoint : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Checkpoint reached at level " + curCheckPointLevel);
-            if (curCheckPointLevel > 0)
+            if (curCheckPointLevel > 0  && curCheckPointLevel < LevelCounter.Level)
             {
                 gameOver.ShowGameOver();
             }
@@ -42,6 +44,7 @@ public class CheckPoint : MonoBehaviour
             {
                 LevelCounter.SetLevel(curCheckPointLevel);
                 timer.m_Time = timeToBeat;
+                LivesCounter.SetLives(numOfLivesToGive);
             }
         }
     }

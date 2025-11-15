@@ -26,7 +26,11 @@ public class Timer : MonoBehaviour
     {
         if (m_Running)
         {
-            m_Time += Time.fixedDeltaTime;
+            m_Time -= Time.fixedDeltaTime;
+            if (m_Time <= 0)
+            {
+                Main.ResetPlayer();
+            }
         }
     }
 }

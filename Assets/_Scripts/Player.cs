@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     [Header("Inscribed")]
     public GameObject playerPrefab;
 
+    public Timer timer;
+
     public float speed = 10f;
     public float jumpPower = 5f;
 
@@ -37,6 +39,11 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+
+        if (!timer.m_Running && horizontal != 0)
+        {
+            timer.m_Running = true;
+        }
     }
 
     private bool IsGrounded()
