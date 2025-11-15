@@ -27,6 +27,5 @@ public class General : MonoBehaviour
         {
             // Do something with the player
         }
-
     }
 }
