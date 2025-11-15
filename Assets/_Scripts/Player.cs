@@ -33,6 +33,11 @@ public class Player : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
+        if (resetLevel)
+        {
+            Main.ResetPlayer();
+        }
+
         Flip();
     }
 
@@ -61,4 +66,6 @@ public class Player : MonoBehaviour
             transform.localScale = localScale;
         }
     }
+
+    public bool resetLevel = false;
 }
