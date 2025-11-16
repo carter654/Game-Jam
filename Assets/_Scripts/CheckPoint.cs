@@ -42,6 +42,7 @@ public class CheckPoint : MonoBehaviour
             }
             if (LevelCounter.Level < curCheckPointLevel)
             {
+                timer.m_Running = false;
                 LevelCounter.SetLevel(curCheckPointLevel);
                 timer.m_Time = timeToBeat;
                 LivesCounter.SetLives(numOfLivesToGive);

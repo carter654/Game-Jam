@@ -59,7 +59,7 @@ public class Main : MonoBehaviour
     void Update()
     {
         rockSpawnInterval -= Time.deltaTime;
-        if (rockSpawnInterval <= 0)
+        if (rockSpawnInterval <= 0 && timer.m_Running)
         {
             SpawnRock();
             rockSpawnInterval = Random.Range(1f, 7f);
