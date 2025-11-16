@@ -13,6 +13,8 @@ public class Main : MonoBehaviour
     void Start()
     {
         timer = FindObjectOfType<Timer>();
+
+        Debug.Log("Starting Level: " + LevelCounter.Level + " with Lives: " + LivesCounter.Lives);
         
         CheckPoint[] allCheckpoints = FindObjectsOfType<CheckPoint>();
         CheckPoint checkPoint = null;
@@ -25,18 +27,8 @@ public class Main : MonoBehaviour
                 break;
             }
         }
-        if (checkPoint == null && allCheckpoints.Length > 0)
-        {
-            checkPoint = allCheckpoints[0];
-        }
-        
 
         timer.m_Time = checkPoint.timeToBeat;
-        LivesCounter.SetLives(checkPoint.numOfLivesToGive);
-        LevelCounter.SetLevel(checkPoint.curCheckPointLevel);
-
-        Debug.Log("Checkpoint Level: " + checkPoint.curCheckPointLevel + " Time to Beat: " + checkPoint.timeToBeat + " Lives to Give: " + checkPoint.numOfLivesToGive);
-        Debug.Log("Starting Level: " + LevelCounter.Level + " with Lives: " + LivesCounter.Lives);
 
         GameObject player = GameObject.FindWithTag("Player");
         player.transform.position = checkPoint.CheckPointPrefab.transform.position;
@@ -64,16 +56,11 @@ public class Main : MonoBehaviour
             if (cp.curCheckPointLevel == targetLevel)
             {
                 checkPoint = cp;
-                break;
             }
             else if (cp.curCheckPointLevel == targetLevel - 1)
             {
                 prevCheckPoint = cp;
             }
-        }
-        if (checkPoint == null && allCheckpoints.Length > 0)
-        {
-            checkPoint = allCheckpoints[0];
         }
 
         timer.m_Time = checkPoint.timeToBeat;
@@ -83,7 +70,7 @@ public class Main : MonoBehaviour
 
         Debug.Log("Current Lives: " + LivesCounter.Lives);
 
-        if (LivesCounter.Lives > 0)
+        if (LivesCounter.Lives > 1)
         {
             LivesCounter.SetLives(LivesCounter.Lives - 1);
 
