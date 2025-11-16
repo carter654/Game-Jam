@@ -3041,6 +3041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 504348007}
+  FallingRockPrefab: {fileID: 0}
 --- !u!4 &973744410 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2718821321046417701, guid: bc420fe12928a3e44aecca537bb886d2, type: 3}
