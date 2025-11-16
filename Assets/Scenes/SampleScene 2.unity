@@ -3041,7 +3041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 504348007}
-  FallingRockPrefab: {fileID: 0}
+  FallingRockPrefab: {fileID: 5390053118054904703, guid: e7ca3ad07c6f76541b78c3a99d83f36e, type: 3}
 --- !u!4 &973744410 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2718821321046417701, guid: bc420fe12928a3e44aecca537bb886d2, type: 3}
@@ -3248,8 +3248,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993507714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21, y: 40, z: 0}
-  m_LocalScale: {x: 3, y: 100, z: 1}
+  m_LocalPosition: {x: -21, y: 64, z: 0}
+  m_LocalScale: {x: 3, y: 150, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4465,8 +4465,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532303751}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21, y: 40, z: 0}
-  m_LocalScale: {x: 3, y: 100, z: 1}
+  m_LocalPosition: {x: 21, y: 64, z: 0}
+  m_LocalScale: {x: 3, y: 150, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -6152,7 +6152,7 @@ MonoBehaviour:
   CheckPointPrefab: {fileID: 1993695108}
   timer: {fileID: 504348007}
   curCheckPointLevel: 1
-  timeToBeat: 25
+  timeToBeat: 45
   numOfLivesToGive: 4
   gameOver: {fileID: 1426910626}
 --- !u!61 &1993695110

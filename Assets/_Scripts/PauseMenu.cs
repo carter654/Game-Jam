@@ -39,9 +39,11 @@ public class PauseMenu : MonoBehaviour
     public void restart(){
         Debug.Log("Restart");
         Main.ResetPlayer();
+        resume();
     }
 
     public void Menu(){
         SceneManager.LoadScene(0);
+        resume();
     }
 }
