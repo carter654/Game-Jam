@@ -6,6 +6,8 @@ public class Main : MonoBehaviour
 {
 
     public Timer timer;
+
+    public GameObject FallingRockPrefab;
     
     // Start is called before the first frame update
     void Start()
@@ -103,5 +105,11 @@ public class Main : MonoBehaviour
                 player.transform.position = checkPoint.CheckPointPrefab.transform.position;
             }
         }
+    }
+
+    void SpawnRock()
+    {
+        GameObject rock = Instantiate<GameObject>(FallingRockPrefab);
+        rock.transform.position = GameObject.FindWithTag("Player").transform.position + new Vector3(0, 5, 0);
     }
 }
