@@ -14,7 +14,6 @@ public class FallingRocks : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.down * speed;
         pos = rb.position;
-        Debug.Log("Falling rock position: " + pos.y);
         transform.position = pos;
 
         if (transform.position.y < bottomY){
