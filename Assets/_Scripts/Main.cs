@@ -8,10 +8,14 @@ public class Main : MonoBehaviour
     public Timer timer;
 
     public GameObject FallingRockPrefab;
+
+    public float rockSpawnInterval = 0;
     
     // Start is called before the first frame update
     void Start()
     {
+        rockSpawnInterval = Random.Range(1f, 7f);
+
         timer = FindObjectOfType<Timer>();
 
         Debug.Log("Starting Level: " + LevelCounter.Level + " with Lives: " + LivesCounter.Lives);
@@ -38,7 +42,12 @@ public class Main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        rockSpawnInterval -= Time.deltaTime;
+        if (rockSpawnInterval <= 0)
+        {
+            SpawnRock();
+            rockSpawnInterval = Random.Range(1f, 7f);
+        }
     }
     
     static public void ResetPlayer()
@@ -97,6 +106,6 @@ public class Main : MonoBehaviour
     void SpawnRock()
     {
         GameObject rock = Instantiate<GameObject>(FallingRockPrefab);
-        rock.transform.position = GameObject.FindWithTag("Player").transform.position + new Vector3(0, 5, 0);
+        rock.transform.position = GameObject.FindWithTag("Player").transform.position + new Vector3(0, 20, 0);
     }
 }
