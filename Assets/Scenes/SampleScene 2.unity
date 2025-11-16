@@ -1144,7 +1144,7 @@ MonoBehaviour:
   CheckPointPrefab: {fileID: 123663650}
   timer: {fileID: 504348007}
   curCheckPointLevel: 2
-  timeToBeat: 60
+  timeToBeat: 120
   numOfLivesToGive: 3
   gameOver: {fileID: 1426910626}
 --- !u!61 &123663655
