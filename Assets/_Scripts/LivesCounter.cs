@@ -7,7 +7,7 @@ public class LivesCounter : MonoBehaviour
 {
     [Header("Dynamic")]
 
-    static private int _lives = 0;
+    static private int _lives = -1;
 
     static private TextMeshProUGUI uiText;
 

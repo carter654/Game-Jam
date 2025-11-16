@@ -6,7 +6,7 @@ using TMPro;
 public class LevelCounter : MonoBehaviour
 {
     [Header("Dynamic")]
-    static private int _level = 0;
+    static private int _level = -1;
     
     static private TextMeshProUGUI uiText;
 

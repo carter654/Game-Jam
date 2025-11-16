@@ -22,7 +22,14 @@ public class Main : MonoBehaviour
         
         CheckPoint[] allCheckpoints = FindObjectsOfType<CheckPoint>();
         CheckPoint checkPoint = null;
-        int targetLevel = LevelCounter.Level;
+        int targetLevel;
+        if (LevelCounter.Level == -1)
+        {
+            targetLevel = 0;
+        } else
+        {
+            targetLevel = LevelCounter.Level;
+        }
         foreach (var cp in allCheckpoints)
         {
             if (cp.curCheckPointLevel == targetLevel)
@@ -33,6 +40,15 @@ public class Main : MonoBehaviour
         }
 
         timer.m_Time = checkPoint.timeToBeat;
+
+        if (LevelCounter.Level == -1)
+        {
+            LevelCounter.SetLevel(checkPoint.curCheckPointLevel);
+        }
+        if (LivesCounter.Lives == -1)
+        {
+            LivesCounter.SetLives(checkPoint.numOfLivesToGive);
+        }
 
         GameObject player = GameObject.FindWithTag("Player");
         player.transform.position = checkPoint.CheckPointPrefab.transform.position;
@@ -72,7 +88,6 @@ public class Main : MonoBehaviour
             }
         }
 
-        timer.m_Time = checkPoint.timeToBeat;
         timer.m_Running = false;
 
         GameObject player = GameObject.FindWithTag("Player");
@@ -82,7 +97,7 @@ public class Main : MonoBehaviour
         if (LivesCounter.Lives > 1)
         {
             LivesCounter.SetLives(LivesCounter.Lives - 1);
-
+            timer.m_Time = checkPoint.timeToBeat;
             player.transform.position = checkPoint.CheckPointPrefab.transform.position;
         }
         else
@@ -91,13 +106,13 @@ public class Main : MonoBehaviour
             {
                 LevelCounter.SetLevel(LevelCounter.Level - 1);
                 LivesCounter.SetLives(prevCheckPoint.numOfLivesToGive);
-
+                timer.m_Time = prevCheckPoint.timeToBeat;
                 player.transform.position = prevCheckPoint.CheckPointPrefab.transform.position;
             }
             else
             {
                 LivesCounter.SetLives(checkPoint.numOfLivesToGive);
-
+                timer.m_Time = checkPoint.timeToBeat;
                 player.transform.position = checkPoint.CheckPointPrefab.transform.position;
             }
         }
