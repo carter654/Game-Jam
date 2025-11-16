@@ -13,11 +13,12 @@ public class LevelCounter : MonoBehaviour
     void Awake() 
     {
         uiText = GetComponent<TextMeshProUGUI>();
-
+        
         if (PlayerPrefs.HasKey("LevelCounter")){
             Level = PlayerPrefs.GetInt("LevelCounter");
         }
         PlayerPrefs.SetInt("LevelCounter", Level);
+        PlayerPrefs.Save();
     }
 
     static public int Level
@@ -26,6 +27,7 @@ public class LevelCounter : MonoBehaviour
         private set{
             _level = value;
             PlayerPrefs.SetInt("LevelCounter", value);
+            PlayerPrefs.Save();
             if (uiText != null) {
                 uiText.text = "Level: " + value.ToString("#,0");
             }

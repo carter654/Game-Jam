@@ -36,7 +36,7 @@ public class CheckPoint : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Checkpoint reached at level " + curCheckPointLevel);
-            if (curCheckPointLevel > 0  && curCheckPointLevel < LevelCounter.Level)
+            if (curCheckPointLevel > 0  && curCheckPointLevel > LevelCounter.Level)
             {
                 gameOver.ShowGameOver();
             }

@@ -15,10 +15,11 @@ public class LivesCounter : MonoBehaviour
     {
         uiText = GetComponent<TextMeshProUGUI>();
 
-        if (PlayerPrefs.HasKey("LevelCounter")){
-            Lives = PlayerPrefs.GetInt("LevelCounter");
+        if (PlayerPrefs.HasKey("LivesCounter")){
+            Lives = PlayerPrefs.GetInt("LivesCounter");
         }
-        PlayerPrefs.SetInt("LevelCounter", Lives);
+        PlayerPrefs.SetInt("LivesCounter", Lives);
+        PlayerPrefs.Save();
     }
 
     static public int Lives
@@ -26,7 +27,8 @@ public class LivesCounter : MonoBehaviour
         get { return _lives; }
         set{
             _lives = value;
-            PlayerPrefs.SetInt("LevelCounter", value);
+            PlayerPrefs.SetInt("LivesCounter", value);
+            PlayerPrefs.Save();
             uiText.text = "Lives: " + value.ToString("#,0");
             
         }
